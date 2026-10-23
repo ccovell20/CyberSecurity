@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ChildCare Management Hub</title>
+    <link rel="stylesheet" href="/ChildCare/style.css">
+    
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="handleLogin()">Login</button>
+        <p class="error-message" id="error-message">Invalid username or password. This attempt has been logged!</p>
+    </div>
+
+    <script>
+        // Obfuscated credentials with unrelated variable names
+        const pinkPanther = atob("SU1hcmtoYW0uMTQz");
+        const blueSky = atob("Q3ViYTIwMjQh");
+
+        function handleLogin() {
+            // Get input values
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Check if credentials match
+            if (username === pinkPanther && password === blueSky) {
+                // Save login status to localStorage
+                localStorage.setItem("loggedIn", "true");
+                // Redirect to the success page
+                window.location.href = "/ChildCare/familydetails.html";
+            } else {
+                // Show error message
+                document.getElementById("error-message").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
