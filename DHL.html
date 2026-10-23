@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSINT-USW-Parcel-Tracking</title>
+    <link rel="stylesheet" href="/DHL/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">USW-DHL</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Tracking</a></li>
+                <li><a href="#">Shipping</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li id="login-button-container"><a class="login-button" href="/DHL/login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to your Tracking Page</h1>
+            <p>Your reliable tracking service. Please login to track your orders.</p>
+            <div class="orders-section">
+                <button onclick="openOrders()">Open Orders</button>
+                <p id="error-message" style="color: red; display: none;">You must log in to view your orders.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-item">
+                <h3>Express Shipping</h3>
+                <p>Fast and reliable delivery worldwide.</p>
+            </div>
+            <div class="service-item">
+                <h3>Freight Solutions</h3>
+                <p>Comprehensive freight forwarding services.</p>
+            </div>
+            <div class="service-item">
+                <h3>Tracking</h3>
+                <p>Track your shipment in real-time.</p>
+            </div>
+            <div class="service-item">
+                <h3>Customer Support</h3>
+                <p>We’re here to help 24/7.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Careers</a>
+            <a href="#">Site Map</a>
+        </div>
+        <p>&copy; 2024 My Logistics. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openOrders() {
+            // Check if the user is logged in
+            if (localStorage.getItem("loggedIn") === "true") {
+                // Redirect to orders page
+                window.location.href = "/DHL/orders.html";
+            } else {
+                // Show error message
+                document.getElementById("error-message").style.display = "block";
+            }
+        }
+
+        // Remove the login button if the user is logged in
+        document.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem("loggedIn") === "true") {
+                const loginButtonContainer = document.getElementById("login-button-container");
+                if (loginButtonContainer) {
+                    loginButtonContainer.remove(); // Remove the login button container from the DOM
+                }
+            }
+        });
+    </script>
+</body>
+</html>
